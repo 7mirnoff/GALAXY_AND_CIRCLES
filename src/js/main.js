@@ -1,4 +1,9 @@
 import './modules/polyfill'
+import SimplexNoise from 'simplex-noise'
+
+let simplex = new SimplexNoise()
+let noise
+let time = 0
 
 const stars = document.querySelector(`.container-stars`)
 
@@ -45,9 +50,10 @@ for (let i = 0; i < linesNumber; i++) {
 const update = () => {
   for (let i = 0; i < linesNumber; i++) {
     for (let j = 0; j <= vertices; j++) {
+      noise = simplex.noise2D(lines[i][j].x + , lines[i][j].y + ) // TODO: закончил тут 34:34
 
-      lines[i][j].x = lines[i][j]._x * radius * (1 - i / 10) // последний делитель устанавливает разность кругов
-      lines[i][j].y = lines[i][j]._y * radius * (1 - i / 10) // последний делитель устанавливает разность кругов
+      lines[i][j].x = lines[i][j]._x * radius * (1 - i / 10) + noise * radius / 10
+      lines[i][j].y = lines[i][j]._y * radius * (1 - i / 10) + noise * radius / 10
 
     }
   }
@@ -68,6 +74,7 @@ const render = () => {
 }
 
 function raf () {
+  time++
   update()
   render()
 
