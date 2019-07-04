@@ -1,5 +1,6 @@
 import './modules/polyfill'
 import SimplexNoise from 'simplex-noise'
+import './modules/3d-space'
 
 let simplex = new SimplexNoise()
 let noise

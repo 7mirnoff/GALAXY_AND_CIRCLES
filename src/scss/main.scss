@@ -5,3 +5,16 @@
 
 
 
+.container-stars {
+  position: relative;
+  background-image: url('../assets/img/bg.jpg');
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
