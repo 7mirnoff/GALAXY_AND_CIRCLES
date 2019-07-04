@@ -9,7 +9,7 @@ let destination = {
   y: 0
 }
 let textures = []
-let particles
+let particlesGroup
 
 let mouseX = 0
 let mouseY = 0
@@ -62,8 +62,8 @@ function init () {
     map: new THREE.CanvasTexture(getCanvas())
   })
 
-  particles = new THREE.Group()
-  scene.add(particles)
+  particlesGroup = new THREE.Group()
+  scene.add(particlesGroup)
 
   for (let i = 0; i < 1000; i++) {
     let particle = new THREE.Sprite(material)
@@ -74,11 +74,10 @@ function init () {
 
     particle.scale.x = particle.scale.y = 5 + 5 * Math.random()
 
-    particles.add(particle)
+    particlesGroup.add(particle)
   }
 
   resize()
-
 }
 
 window.addEventListener(`resize`, resize)
@@ -103,8 +102,8 @@ document.addEventListener(`mousemove`, onMouseMove)
 function animate () {
   time = time + 0.05
 
-  particles.rotation.x += 0.0002
-  particles.rotation.y += 0.0002
+  particlesGroup.rotation.x += 0.0002
+  particlesGroup.rotation.y += 0.0002
 
   camera.position.x += (mouseX / 3 - camera.position.x) * 0.02
   camera.position.y += (-mouseY / 3 - camera.position.y) * 0.02

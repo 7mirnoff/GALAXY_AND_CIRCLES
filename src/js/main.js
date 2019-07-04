@@ -78,6 +78,8 @@ const update = () => {
 const render = () => {
   ctx.clearRect(0, 0, width, height)
   ctx.strokeStyle = color
+  ctx.lineCap = `round`
+  ctx.lineJoin = `round`
   for (let i = 0; i < linesNumber; i++) {
     for (let j = 1; j <= vertices; j++) {
       ctx.beginPath()
