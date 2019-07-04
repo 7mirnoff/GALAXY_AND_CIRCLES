@@ -65,7 +65,7 @@ function init () {
   particlesGroup = new THREE.Group()
   scene.add(particlesGroup)
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 2000; i++) {
     let particle = new THREE.Sprite(material)
 
     particle.position.x = (2 * Math.random() - 1) * 1000
@@ -97,6 +97,7 @@ function onMouseMove (evt) {
   mouseX = evt.clientX - halfX
   mouseY = evt.clientY - halfY
 }
+
 document.addEventListener(`mousemove`, onMouseMove)
 
 function animate () {
