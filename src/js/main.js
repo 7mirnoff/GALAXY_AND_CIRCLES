@@ -83,7 +83,7 @@ const render = () => {
   for (let i = 0; i < linesNumber; i++) {
     for (let j = 1; j <= vertices; j++) {
       ctx.beginPath()
-      ctx.lineWidth = lines[i][j].width < 2 ? 2 : lines[i][j].width // минимальная ширина линии 1px
+      ctx.lineWidth = Math.min(2, lines[i][j].width) // минимальная ширина линии 2px
       ctx.moveTo(halfX + lines[i][j - 1].x, halfY + lines[i][j - 1].y)
       ctx.lineTo(halfX + lines[i][j].x, halfY + lines[i][j].y)
 
